@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+		<head>
+			<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			* {box-sizing: border-box}
+			body {font-family: Verdana, sans-serif; margin:0}
+			.mySlides {display: none}
+			img {horizontal-align: middle;}
+
+			/* Slideshow container */
+			.slideshow-container {
+			max-width: 500px;
+			position: relative;
+			margin: auto;
+			}
+
+			/* Next & previous buttons */
+			.prev, .next {
+			cursor: pointer;
+			position: absolute;
+			top: 50%;
+			width: auto;
+			padding: 16px;
+			margin-top: -22px;
+			color: white;
+			font-weight: bold;
+			font-size: 18px;
+			transition: 0.6s ease;
+			border-radius: 0 3px 3px 0;
+			user-select: none;
+			}
+
+			/* Position the "next button" to the right */
+			.next {
+			right: 0;
+			border-radius: 3px 0 0 3px;
+			}
+
+			/* On hover, add a black background color with a little bit see-through */
+			.prev:hover, .next:hover {
+			background-color: rgba(0,0,0,0.8);
+			}
+
+
+
+			/* Number text (1/10 etc) */
+			.numbertext {
+			color: #f2f2f2;
+			font-size: 12px;
+			padding: 8px 12px;
+			position: absolute;
+			top: 0;
+			}
+
+			/* The dots/bullets/indicators */
+			.dot {
+			cursor: pointer;
+			height: 15px;
+			width: 15px;
+			margin: 0 2px;
+			background-color: #bbb;
+			border-radius: 50%;
+			display: inline-block;
+			transition: background-color 0.6s ease;
+			}
+
+			.active, .dot:hover {
+			background-color: #717171;
+			}
+
+			/* Fading animation */
+			.fade {
+			animation-name: fade;
+			animation-duration: 1.5s;
+			}
+
+			@keyframes fade {
+			from {opacity: .4} 
+			to {opacity: 1}
+			}
+
+			/* On smaller screens, decrease text size */
+			@media only screen and (max-width: 300px) {
+			.prev, .next,.text {font-size: 11px}
+			}
+			body{
+			background-color: hsl(0, 50%, 30%);
+			}
+		</style>
+		</head>
+		<body>
+
+
+			<div class="slideshow-container">
+
+			<div class="mySlides fade">
+			<div class="numbertext">1 / 10</div>
+			<img src="https://i.pinimg.com/474x/11/66/16/116616464d927be481a85566b6e560df.jpg" style="width:100%">
+			</div>
+
+			<div class="mySlides fade">
+			<div class="numbertext">2 / 10</div>
+			<img src="https://i.pinimg.com/474x/84/bc/20/84bc20b4b9fb6f68c2c4dbee8229a943.jpg" style="width:100%">
+			</div>
+
+			<div class="mySlides fade">
+			<div class="numbertext">3 / 10</div>
+			<img src="https://i.pinimg.com/474x/68/c7/af/68c7afd4671a2c0c00bc4ff53b18dfb7.jpg" style="width:100%">
+			</div>
+			<div class="mySlides fade">
+			<div class="numbertext">4 / 10</div>
+			<img src="https://i.pinimg.com/474x/96/8f/ba/968fba27ca8edd26aae0a8ccf50859d2.jpg" style="width:100%">
+			</div>
+			<div class="mySlides fade">
+			<div class="numbertext">5 / 10</div>
+			<img src="https://i.pinimg.com/474x/43/4b/97/434b970fe0d953dea88f15ba67759824.jpg" style="width:100%">
+			</div>
+			<div class="mySlides fade">
+			<div class="numbertext">6 / 10</div>
+			<img src="https://i.pinimg.com/474x/37/9b/9a/379b9a1d07d222818612291f85be2d0a.jpg" style="width:100%">
+			</div>
+			<div class="mySlides fade">
+			<div class="numbertext">7 / 10</div>
+			<img src="https://i.pinimg.com/474x/0d/42/76/0d42769c666a35a08b81f6723915605c.jpg" style="width:100%">
+			</div>
+			<div class="mySlides fade">
+			<div class="numbertext">8 / 10</div>
+			<img src="https://i.pinimg.com/474x/58/b8/18/58b81848bcedc2120fcd12d52197df79.jpg" style="width:100%">
+			</div>
+			<div class="mySlides fade">
+			<div class="numbertext">9 / 10</div>
+			<img src="https://i.pinimg.com/474x/e1/4c/b6/e14cb6471f4df47a3fb16914ae559b5b.jpg" style="width:100%">
+			</div>
+			<div class="mySlides fade">
+			<div class="numbertext">10 / 10</div>
+			<img src="https://i.pinimg.com/474x/ea/9f/9a/ea9f9a8074242c93b0f5753f887af19c.jpg" style="width:100%">
+			</div>
+
+			<a class="prev" onclick="plusSlides(-1)">❮</a>
+			<a class="next" onclick="plusSlides(1)">❯</a>
+
+			</div>
+			<br>
+
+			<div style="text-align:center">
+				<span class="dot" onclick="currentSlide(1)"></span> 
+				<span class="dot" onclick="currentSlide(2)"></span> 
+				<span class="dot" onclick="currentSlide(3)"></span> 
+			</div>
+
+			<script>
+			let slideIndex = 1;
+			showSlides(slideIndex);
+
+			function plusSlides(n) {
+			showSlides(slideIndex += n);
+			}
+
+			function currentSlide(n) {
+			showSlides(slideIndex = n);
+			}
+
+			function showSlides(n) {
+			let i;
+			let slides = document.getElementsByClassName("mySlides");
+			let dots = document.getElementsByClassName("dot");
+			if (n > slides.length) {slideIndex = 1}    
+			if (n < 1) {slideIndex = slides.length}
+			for (i = 0; i < slides.length; i++) {
+			slides[i].style.display = "none";  
+			}
+			for (i = 0; i < dots.length; i++) {
+			dots[i].className = dots[i].className.replace(" active", "");
+			}
+			slides[slideIndex-1].style.display = "block";  
+			dots[slideIndex-1].className += " active";
+		}
+		</script>
+
+	</body>
+</html> 
